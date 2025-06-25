@@ -11,12 +11,12 @@ const getPDFs = async (req, res) => {
     '11': {
       mathematics: { code: 'kemh', chapters: [14] },
       physics: { code: 'keph', chapters: [7, 7] },
-      chemistry: { code: 'kech', chapters: [9, 5] }
+      chemistry: { code: 'kech', chapters: [6, 3] }
     },
     '12': {
       mathematics: { code: 'lemh', chapters: [6, 7] },
-      physics: { code: 'leph', chapters: [8, 7] },
-      chemistry: { code: 'lech', chapters: [9, 7] }
+      physics: { code: 'leph', chapters: [8, 6] },
+      chemistry: { code: 'lech', chapters: [5, 5] }
     }
   };
 

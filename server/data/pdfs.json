@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "title": "Class 12 Physics Notes",
+    "description": "Covers all chapters with examples.",
+    "url": "https://example.com/physics-notes.pdf"
+  },
+  {
+    "id": 2,
+    "title": "Organic Chemistry Summary",
+    "description": "Quick revision of key reactions.",
+    "url": "https://example.com/organic-chem.pdf"
+  }
+]

@@ -1,0 +1,191 @@
+.spline-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, rgba(100, 116, 139, 0.05), transparent 70%);
+}
+
+.spline-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(100, 149, 237, 0.06), transparent 50%),
+    radial-gradient(circle at 70% 75%, rgba(72, 187, 120, 0.05), transparent 50%),
+    radial-gradient(circle at 45% 90%, rgba(250, 204, 21, 0.03), transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.spline-background {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.015), rgba(0, 0, 0, 0.03));
+  overflow: hidden;
+}
+
+.spline-bubble {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  filter: blur(1px);
+  animation: subtleFloat 16s ease-in-out infinite;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.spline-bubble::before,
+.spline-bubble::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.spline-bubble::before {
+  top: 20%;
+  left: 20%;
+  width: 25%;
+  height: 25%;
+  background: rgba(255, 255, 255, 0.3);
+  filter: blur(1.5px);
+}
+
+.spline-bubble::after {
+  inset: -2px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), transparent);
+  z-index: -1;
+}
+
+/* Bubble Styles */
+.spline-bubble1 {
+  width: 110px;
+  height: 110px;
+  top: 10%;
+  left: 10%;
+  background: radial-gradient(circle at 30% 30%, #3b82f6, #1d4ed8);
+  animation-delay: 0s;
+}
+
+.spline-bubble2 {
+  width: 80px;
+  height: 80px;
+  top: 60%;
+  right: 12%;
+  background: radial-gradient(circle at 30% 30%, #10b981, #047857);
+  animation-delay: -4s;
+}
+
+.spline-bubble3 {
+  width: 60px;
+  height: 60px;
+  bottom: 15%;
+  left: 15%;
+  background: radial-gradient(circle at 30% 30%, #facc15, #b45309);
+  animation-delay: -8s;
+}
+
+/* Refined Extras */
+.spline-bubble4,
+.spline-bubble5 {
+  display: none; /* Simplified for professionalism */
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.02);
+    opacity: 0.15;
+  }
+}
+
+.spline-canvas {
+  position: relative;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.spline-canvas::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.spline-canvas:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Label Design */
+.spline-label {
+  position: absolute;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #1f2937;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.spline-label:hover {
+  transform: scale(1.03);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.spline-label.top-left {
+  top: 1rem;
+  left: 1rem;
+}
+
+.spline-label.bottom-right {
+  bottom: 1rem;
+  right: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .spline-bubble1 { width: 70px; height: 70px; }
+  .spline-bubble2 { width: 55px; height: 55px; }
+  .spline-bubble3 { width: 40px; height: 40px; }
+  
+  .spline-label {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+  }
+
+  .spline-canvas {
+    border-radius: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spline-bubble,
+  .spline-canvas::before {
+    animation: none;
+  }
+}

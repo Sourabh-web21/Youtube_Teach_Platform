@@ -1,0 +1,80 @@
+.theme-toggle-wrapper {
+  position: relative;
+  display: inline-block;
+  font-family: sans-serif;
+}
+
+.theme-toggle-button {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+  background-color: #f9f9f9;
+}
+
+.arrow {
+  font-size: 12px;
+  margin-left: auto;
+}
+
+.theme-dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  min-width: 160px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 4px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  padding: 6px 0;
+  z-index: 1000;
+}
+
+.theme-option {
+  display: flex;
+  color: black;
+  align-items: center;
+  padding: 10px 14px;
+  cursor: pointer;
+  gap: 8px;
+  transition: background 0.2s ease;
+}
+
+.theme-option:hover {
+  background-color: #f0f0f0;
+}
+
+.theme-option input[type="radio"] {
+  display: none;
+}
+
+.radio-icon {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #888;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.theme-option input[type="radio"]:checked + .radio-icon::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 8px;
+  height: 8px;
+  background-color: #007bff;
+  border-radius: 50%;
+}

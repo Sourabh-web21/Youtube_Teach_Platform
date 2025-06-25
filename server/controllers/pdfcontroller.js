@@ -9,14 +9,14 @@ const getPDFs = async (req, res) => {
 
   const chapterMap = {
     '11': {
-      mathematics: { code: 'lemh', chapters: [9, 7] },
-      physics: { code: 'keph', chapters: [8, 7] },
-      chemistry: { code: 'kemh', chapters: [9, 5] }
+      mathematics: { code: 'kemh', chapters: [14] },
+      physics: { code: 'keph', chapters: [7, 7] },
+      chemistry: { code: 'kech', chapters: [9, 5] }
     },
     '12': {
       mathematics: { code: 'lemh', chapters: [6, 7] },
-      physics: { code: 'keph', chapters: [8, 7] },
-      chemistry: { code: 'kemh', chapters: [9, 7] }
+      physics: { code: 'leph', chapters: [8, 7] },
+      chemistry: { code: 'lech', chapters: [9, 7] }
     }
   };
 

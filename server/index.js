@@ -7,10 +7,19 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const allowedOrigins = [
+  'https://youtube-teach-platform.vercel.app',
+  'https://youtube-teach-platform-awvuxrths-sourabhs-projects-f5702034.vercel.app'
+];
+
 app.use(cors({
-  origin: 'https://youtube-teach-platform.vercel.app/',
-  methods: ['GET', 'POST'],
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  }
 }));
 
 app.use(express.json());

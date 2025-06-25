@@ -67,12 +67,15 @@ const PDFs = () => {
         {filteredPDFs.length === 0 ? (
           <p className="text-muted">No PDFs available for this selection.</p>
         ) : (
-          filteredPDFs.map((pdf, index) => (
-            <div className="pdf-card" key={index}>
-              <h3>{pdf.title}</h3>
-              <a href={`${baseUrl}${pdf.link}`} target="_blank" rel="noopener noreferrer">📥 Open</a>
-            </div>
-          ))
+          filteredPDFs.map((pdf, index) => {
+            const pdfUrl = pdf.link.startsWith('http') ? pdf.link : `${baseUrl}${pdf.link}`;
+            return (
+              <div className="pdf-card" key={index}>
+                <h3>{pdf.title}</h3>
+                <a href={pdfUrl} target="_blank" rel="noopener noreferrer">📥 Open</a>
+              </div>
+            );
+          })
         )}
       </div>
     </div>

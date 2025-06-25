@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: 'https://youtube-teach-platform-qd9j.vercel.app',
+  origin: 'https://youtube-teach-platform.vercel.app/',
   methods: ['GET', 'POST'],
   credentials: true
 }));

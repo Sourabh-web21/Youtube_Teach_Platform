@@ -3,7 +3,7 @@ import '../styles/PDFs.css';
 
 const chapterMap = {
   '11': {
-    mathematics: { books: 2 },
+    mathematics: { books: 1 },
     physics: { books: 2 },
     chemistry: { books: 2 },
   },

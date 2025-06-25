@@ -9,7 +9,7 @@ const Videos = () => {
   const [subject, setSubject] = useState('');
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/videos')
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/videos`)
       .then(res => {
         setVideos(res.data);
         setFiltered(res.data);

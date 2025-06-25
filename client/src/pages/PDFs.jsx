@@ -20,17 +20,19 @@ const PDFs = () => {
   const [selectedBook, setSelectedBook] = useState('');
   const [filteredPDFs, setFilteredPDFs] = useState([]);
 
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
   useEffect(() => {
     if (!selectedClass || !selectedSubject || !selectedBook) {
       setFilteredPDFs([]);
       return;
     }
 
-    fetch(`/api/pdfs?class=${selectedClass}&subject=${selectedSubject}&book=${selectedBook}`)
+    fetch(`${baseUrl}/api/pdfs?class=${selectedClass}&subject=${selectedSubject}&book=${selectedBook}`)
       .then(res => res.json())
       .then(setFilteredPDFs)
       .catch(console.error);
-  }, [selectedClass, selectedSubject, selectedBook]);
+  }, [selectedClass, selectedSubject, selectedBook, baseUrl]);
 
   const showBook2 = chapterMap[selectedClass]?.[selectedSubject]?.books === 2;
 
@@ -68,7 +70,7 @@ const PDFs = () => {
           filteredPDFs.map((pdf, index) => (
             <div className="pdf-card" key={index}>
               <h3>{pdf.title}</h3>
-              <a href={pdf.link} target="_blank" rel="noopener noreferrer">📥 Open</a>
+              <a href={`${baseUrl}${pdf.link}`} target="_blank" rel="noopener noreferrer">📥 Open</a>
             </div>
           ))
         )}

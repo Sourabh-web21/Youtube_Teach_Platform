@@ -3,17 +3,15 @@ import '../styles/PYQs.css';
 
 const PYQs = () => {
   const [pyqs, setPyqs] = useState([]);
-  const [baseUrl, setBaseUrl] = useState('');
+
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
-    const origin = window.location.origin; // http://localhost:3000
-    setBaseUrl(origin.includes('localhost') ? 'http://localhost:5000' : origin);
-
-    fetch('/api/pyqs')
+    fetch(`${baseUrl}/api/pyqs`)
       .then(res => res.json())
       .then(setPyqs)
       .catch(console.error);
-  }, []);
+  }, [baseUrl]);
 
   return (
     <div className="pyq-container">
